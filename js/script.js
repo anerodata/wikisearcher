@@ -1,6 +1,21 @@
 function main(){
 	//cuando alguien haga cambios que entren, o no, por teclado, ejecuta ajax
-	var exec, count, keywords, limit;
+	var exec, count, keywords, limit, loadPoints, windWidth;
+	//funcion insertar cargador
+	checkPointsLoad();
+	$(window).on('resize', checkPointsLoad);
+
+	function checkPointsLoad(){
+		loadPoints = '<div id="loading" class="loadingNo"><img src="img/loading.gif"/></div>';
+		windWidth = $(window).width();
+		if(windWidth > 768){
+			$('#loaderContainerSmp').html('');
+			$('#loaderContainerBig').html(loadPoints);
+		}else{
+			$('#loaderContainerSmp').html(loadPoints);
+			$('#loaderContainerBig').html('');
+		}
+	}
 	$('#keywords').on('input', function(){
 		if ($('#info').html.length != 0 || $('#noRes').html('') != 0) {
 			$('#info').html('');
@@ -97,4 +112,4 @@ function main(){
 	}
 }
 
-$(document).ready(main);
+$(window).on('load',main);
