@@ -1,0 +1,198 @@
+<!DOCTYPE html> 
+
+<html lang = "es">
+
+	<head>
+
+		<meta charset = "UTF-8">
+		<meta name = "keywords" content = ""> 
+		<meta name = "description" content ="Wikisearch is a site that make queries to the Wikipedia API. You can search all topics and the app gives you the results that are kept in the English Wikipedia database"> 
+		<meta name = "keywords" content ="Wikisearch, wikipedia, search, library, searching, search in Wikipedia, Wikipedia search engine, what it is"> 
+		<meta name = "author" content = "Antonio Hernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel = "shortcut icon" href= "img/wikipedia.ico" type="image/png">
+	<!--<link rel = "stylesheet" type = "text/css" href= "style.css">-->
+		<style type="text/css">
+			table tr .empty{
+				text-align: center;
+			}
+
+			p, label, input, select{
+				font-family: sans-serif;
+				font-size: 16px;
+			}
+
+			label[for="keywords"]{
+				display: none;
+			}
+
+			input{
+				width: 50%;
+				height: 20px;
+				border-width: 1px;
+				border-color: #b7b2b2;
+				border-radius: 5px;
+				padding: 5px;
+			}
+			a{
+				text-decoration: none;
+				color: #016CA2;
+			}
+			a:hover{
+				opacity: .8;
+			}
+			a:visited{
+				color:#7a1a8b;
+			}
+			#top{
+				width: 75%;
+				margin: auto;
+				text-align: center;
+			}
+
+			#top h1{
+				margin: 9px;
+
+			}
+			#top #ad a:nth-child(1){
+				font-style: italic;
+				font-family: times new roman;
+			}
+			#content{
+				width: 75%;
+				margin:auto;
+			}
+			table {
+    			border-collapse: collapse;
+    			width: 100%;
+    			margin: auto;
+    			margin-top: 10px;
+			}
+			#head th{
+				text-align: center;
+			}
+			th, td {
+			    text-align: left;
+			    padding: 8px;
+			}
+
+			tr:nth-child(even){background-color: #f2f2f2}
+
+			h1 span{
+				font-size: 1.5em;
+				position: relative;
+			}
+
+			#lens{
+				width: 100px;
+				/*position:absolute -> se coloca en relación a su elemento contenedor (span) con position relative*/
+				position: absolute;
+				left: -1.9px;
+				top: 6px;
+				z-index: -1;
+			}
+
+			#noRes{
+				margin: auto;
+				text-align: center;
+			}
+			#loading img{
+				width: 100%;
+			}
+			#loading{
+				width: 10%;
+				margin: auto;
+				
+			}
+
+			.loadingNo{
+				display: none;
+			}
+			.loadingSi{
+				display: block;
+			}
+			#logo{
+				display: inline-block;
+				height: 0;
+				width: 0;
+			}
+			#logo img{
+				width: 30px;
+			}
+
+			#top, #content{
+				width: 97%;
+			}
+
+			/*-------------mobiles-----------------*/
+			@media screen and (max-width: 480px){
+				#loading{
+					width: 19%;
+					margin: auto;
+				}
+
+				#keywords{
+					width: 97%;
+					margin-bottom: 16px;
+				}
+			}
+			@media screen and (max-width: 300px){
+				
+			}
+
+		</style>
+		<title>Wikisearcher</title>
+		
+	</head>
+
+	<body>
+		<header class="container">
+			<div id="top">
+			 	<h1>Wikisearch<span>er<img id = "lens" src="img/lens.png"/></span>
+			 		
+			 	</h1>
+			 	<a id="logo" href="https://twitter.com/intent/tweet?text=You can find whatever you want -if it exists- in this modern library whose name is Wikipedia&via=anerodata&url=https://antonio-hr.github.io/wikisearcher/", "Twitter", "width=690,height=253" title="share it in Twitter" target="_blank"><img src="img/twtLogo.png"></a>
+			 	
+			 	<div><p id="ad"><a href="https://twitter.com/anerodata" target="_blank">@anerodata</a> - You can find whatever you want (if it exists) in this modern library whose name is <a href="https://en.wikipedia.org/wiki/Main_Page" target="_blank">Wikipedia</a>.</p></div>
+			 	<form>
+			 	<label for="keywords">Search</label>
+			 	<input type="text" id="keywords"></input>
+			 	
+				 	<label for = "limit">Results</label>
+				 	<select id="limit">
+				 		<option value="5">5</option>
+				 		<option value="10">10</option>
+				 		<option value="15">15</option>
+				 		<option value="20">20</option>
+				 	</select>
+			 	</form>
+			 	<div id="loading" class="loadingNo">
+			 		<img src="img/loading.gif"/>
+			 	</div>
+		 </header>
+			 	<div id="content">
+				<table style="" id="info">
+
+				</table>
+				<div id="noRes">
+					
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/script.js"></script>
+		
+	</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>
