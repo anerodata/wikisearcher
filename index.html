@@ -98,13 +98,17 @@
 				margin: auto;
 				text-align: center;
 			}
-			#loading img{
+			.loading img{
 				width: 100%;
 			}
-			#loading{
+			.loading{
 				width: 10%;
 				margin: auto;
 				
+			}
+			
+			#loafingsmp{
+				display:none;	
 			}
 
 			.loadingNo{
@@ -131,6 +135,12 @@
 				#lens{
 					width: 2.5em;
 					top:3px;
+				}
+				#loafingsmp{
+					display:block;	
+				}
+				#loadingbig{
+					display:none;	
 				}
 			}
 			@media screen and (max-width: 480px){
@@ -167,12 +177,15 @@
 			 	<h1>Wikisearch<span>er<img id = "lens" src="img/lens.png"/></span>
 			 		
 			 	</h1>
+				<div class = "loading" id="loadingsmp" class="loadingNo">
+			 		<img src="img/loading.gif"/>
+			 	</div>
 			 	<a id="logo" href="https://twitter.com/intent/tweet?text=You can find whatever you want -if it exists- in this modern library whose name is Wikipedia&via=anerodata&url=https://antonio-hr.github.io/wikisearcher/", "Twitter", "width=690,height=253" title="share it in Twitter" target="_blank"><img src="img/twtLogo.png"></a>
 			 	
 			 	<div><p id="ad"><a href="https://twitter.com/anerodata" target="_blank">@anerodata</a> - You can find whatever you want (if it exists) in this modern library whose name is <a href="https://en.wikipedia.org/wiki/Main_Page" target="_blank">Wikipedia</a>.</p></div>
 			 	<form>
 			 	<label for="keywords">Search</label>
-			 	<input type="text" id="keywords">
+			 	<input type="text" id="keywords" placeholder="type something">
 			 	
 				 	<label for = "limit">Results</label>
 				 	<select id="limit">
@@ -182,7 +195,7 @@
 				 		<option value="20">20</option>
 				 	</select>
 			 	</form>
-			 	<div id="loading" class="loadingNo">
+			 	<div class = "loading" class="loadingNo" id="loadingbig">
 			 		<img src="img/loading.gif"/>
 			 	</div>
 			 	</div>
