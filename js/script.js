@@ -7,8 +7,8 @@ function main(){
 			$('#noRes').html('');
 		}
 		
-		if($('.loading').hasClass('loadingSi') == false){
-			$('.loading').toggleClass('loadingSi');	
+		if($('#loading').hasClass('loadingSi') == false){
+			$('#loading').toggleClass('loadingSi');	
 		}
 		
 		//si count no es igual a undefined, deten contador
@@ -40,7 +40,7 @@ function main(){
 		limit = Number($('#limit').val());
 		if (keywords.replace(/\s/g,'') == "") {
 			//si solo hay espacios en el input, no se construye nada.
-			$('.loading').removeClass('loadingSi'); 
+			$('#loading').removeClass('loadingSi'); 
 			return false;
 		}else{
 		//iniciamos ajax
