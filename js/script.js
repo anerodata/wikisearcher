@@ -16,6 +16,10 @@ function main(){
 			$('#loaderContainerBig').html('');
 		}
 	}
+	//evitamos que el formulario se envie al hacer submit
+	$('#notForm').submit(function(){
+		return false;
+	})
 	$('#keywords').on('input', function(){
 		if ($('#info').html.length != 0 || $('#noRes').html('') != 0) {
 			$('#info').html('');
