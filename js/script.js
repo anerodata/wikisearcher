@@ -1,6 +1,6 @@
 function main(){
 	//cuando alguien haga cambios que entren, o no, por teclado, ejecuta ajax
-	var exec, count, keywords, limit, loadPoints, windWidth;
+	var exec, count, keywords, limit, loadPoints, windWidth, res;
 	//funcion insertar cargador
 	checkPointsLoad();
 	$(window).on('resize', checkPointsLoad);
@@ -24,6 +24,8 @@ function main(){
 		if ($('#info').html.length != 0 || $('#noRes').html('') != 0) {
 			$('#info').html('');
 			$('#noRes').html('');
+			$('#resMvl').html('');
+
 		}
 		
 		if($('#loading').hasClass('loadingSi') == false){
@@ -72,15 +74,19 @@ function main(){
 				//si hay exito en la consulta...
 				success:function(data){
 					if(data[1].length == 0){
+						res = '<p>There is no result.</p>';
 						//si no hay datos, "no se encontró resultado"
 						$('#info').html('');
-						$('#noRes').html('<p>There is no result.</p>');
 						$('#loading').removeClass('loadingSi');
+						if (windWidth > 768) {
+							$('#noRes').html(res);
+						}else{
+							$('#resMvl').html(res);
+						}
 						return false;
 					}else{
 						//de lo contrario, rellenamos la tabla info
 						$('#info').html('<tr id="head"><th>id</th><th>Title</th><th>Description</th></tr>');
-						$('#noRes').html('');
 						$('#loading').removeClass('loadingSi');
 					}
 					for (var i = 1; i < data.length; i++) {
@@ -108,8 +114,13 @@ function main(){
 								$('#row-'+[j]).append('<td id="field-'+[i]+'-'+[j]+'">'+data[i][j]+'</td>');
 							}
 						}	
+					}
+					if ($('#resMvl').length != 0){
+						res = '<p>Scroll down to see some results</p>';
+						$('#resMvl').html(res);
 					}	
 				}
+				
 			});//fin de ajax
 		
 		}
