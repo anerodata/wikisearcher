@@ -106,7 +106,7 @@ function main(){
 							}else if (i == 2 && data[i][j] == ""){
 								//excepecion de la desc que viene vacia
 								$('#row-'+[j]).append('<td id="field-'+[i]+'-'+[j]+'" class="empty">-</td>');
-							}else if (i == 2 && /may refer to:/.test(data[i][j]) == true){
+							}else if (i == 2 && (/may refer to:/.test(data[i][j]) == true || /might refer to:/.test(data[i][j]) == true)){
 								//excepecion de la desc que tiene may refer to (añadimos un poco más de texto para evitar confusion)
 								$('#row-'+[j]).append('<td id="field-'+[i]+'-'+[j]+'" class="">'+data[i][j].replace(":"," many things. Click on the link to select a specific topic.")+'</td>');
 							}else{
