@@ -115,7 +115,7 @@ function main(){
 							}
 						}	
 					}
-					if ($('#loaderContainerSmp').length != 0){
+					if (windWidth < 768){
 						res = '<p>Scroll down to see some results</p>';
 						$('#resMvl').html(res);
 					}	
