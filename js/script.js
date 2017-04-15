@@ -115,7 +115,7 @@ function main(){
 							}
 						}	
 					}
-					if ($('#resMvl').length != 0){
+					if ($('#loaderContainerSmp').length != 0){
 						res = '<p>Scroll down to see some results</p>';
 						$('#resMvl').html(res);
 					}	
