@@ -119,7 +119,7 @@ function main(){
 						res = '<p>Scroll down to see some results</p>';
 						$('#resMvl').html(res);
 					}	
-				}
+				},
 				error:function(jqXHR, excepcion){
 					var msg = '';
 					if (jqXHR.status === 0) {
