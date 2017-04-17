@@ -120,6 +120,33 @@ function main(){
 						$('#resMvl').html(res);
 					}	
 				}
+				error:function(jqXHR, excepcion){
+					var msg = '';
+					if (jqXHR.status === 0) {
+					msg = '<p>Not connect.\n Verify Network.</p>';
+					} else if (jqXHR.status == 404) {
+					msg = '<p>Requested page not found. [404]</p>';
+					} else if (jqXHR.status == 500) {
+					msg = '<p>Internal Server Error [500].</p>';
+					} else if (excepcion === 'parsererror') {
+					    msg = '<p>Requested JSON parse failed.</p>';
+					} else if (excepcion === 'timeout') {
+					    msg = '<p>Time out error.</p>';
+					} else if (excepcion === 'abort') {
+					    msg = '<p>Ajax request aborted.</p>';
+					} else {
+						//este error es un json y ocurrirá cuando las excepciones sean distintas a las anteriores, por lo que hay que parsear
+						var respJson = JSON.parse( jqXHR.responseText );
+					    msg = '<p>Uncaught Error.\n'+jqXHR.status.title+'</p>';
+
+					}
+					if (windWidth < 768){
+							$('#resMvl').html(msg);
+						}else{
+							$('#noRes').html(msg);
+					}
+					$('#loading').removeClass('loadingSi');
+				}
 				
 			});//fin de ajax
 		
