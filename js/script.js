@@ -71,6 +71,7 @@ function main(){
 				url:'https://en.wikipedia.org//w/api.php?action=opensearch&format=json&origin=*&search='+keywords+'&limit='+limit,
 				datatype:'json',
 				async:'false',
+				timeout:4000,
 				//si hay exito en la consulta...
 				success:function(data){
 					if(data[1].length == 0){
